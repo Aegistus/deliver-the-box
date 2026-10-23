@@ -2,6 +2,8 @@ extends CharacterBody3D
 class_name Player
 
 signal on_interact_in_range(new_interactable)
+signal on_pickup_object
+signal on_drop_object
 
 # movement
 var walk_speed := 5.0
@@ -51,6 +53,8 @@ func _physics_process(delta):
 		on_interact_in_range.emit(new_interactable)
 	if Input.is_action_just_pressed("interact") and current_interactable:
 		current_interactable.interact(self)
+	if Input.is_action_just_pressed("drop"):
+		drop(currently_carrying)
 	
 	### MOVEMENT ###
 	if not is_on_floor():
@@ -91,15 +95,16 @@ func headbob(time) -> Vector3:
 	return pos
 
 func carry(object):
-	if currently_carrying != null:
-		if currently_carrying == object:
-			drop(currently_carrying)
-			return
-		else:
-			drop(currently_carrying)
+	if object == null or currently_carrying != null:
+		return
 	currently_carrying = object
 	carrying_point.node_b = currently_carrying.get_path()
+	on_pickup_object.emit()
 
 func drop(object):
+	if currently_carrying == null:
+		return
+	on_drop_object.emit()
+	currently_carrying.stop_interacting(self)
 	carrying_point.node_b = ""
 	currently_carrying = null

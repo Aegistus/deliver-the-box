@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cp4absrhqtpj0"]
 
 [ext_resource type="Texture2D" uid="uid://nrm0qlneh05r" path="res://ui/crosshair.png" id="1_cfom6"]
+[ext_resource type="Theme" uid="uid://bntrye3gnbaqd" path="res://theme.tres" id="2_iwa1g"]
 [ext_resource type="Script" uid="uid://g14hdvefkvc8" path="res://ui/interact_tooltip.gd" id="2_vq5xy"]
+[ext_resource type="Script" uid="uid://bor7pkqvoqlm4" path="res://ui/drop_tooltip.gd" id="3_ehg4m"]
 
 [node name="PlayerUI" type="Control" unique_id=1802423578]
 layout_mode = 3
@@ -30,12 +32,41 @@ texture = ExtResource("1_cfom6")
 expand_mode = 3
 
 [node name="InteractTooltip" type="RichTextLabel" parent="." unique_id=2007424386]
-layout_mode = 0
-offset_left = 599.0
-offset_top = 312.0
-offset_right = 756.0
-offset_bottom = 337.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 36.0
+offset_top = -12.0
+offset_right = 193.0
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_iwa1g")
+theme_type_variation = &"Tooltip"
 text = "Press E to Interact"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_vq5xy")
+
+[node name="DropTooltip" type="RichTextLabel" parent="." unique_id=1843605623]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -78.0
+offset_top = -63.0
+offset_right = 79.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_iwa1g")
+theme_type_variation = &"Tooltip"
+text = "Press F to Drop"
+fit_content = true
+scroll_active = false
+script = ExtResource("3_ehg4m")
