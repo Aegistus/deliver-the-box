@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cve6fjpdm24pb"]
+
+[ext_resource type="Material" uid="uid://da0re8omuuf36" path="res://objects/the_box/the_box_mat.tres" id="1_13gn2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qk62m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_qk62m"]
+
+[node name="TheBox" type="RigidBody3D" unique_id=1953151953]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 6
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=710546122]
+shape = SubResource("BoxShape3D_qk62m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=988089877]
+transform = Transform3D(1, -1.4901161e-08, 0, 0, 0.99999994, 0, -1.4901161e-08, -2.9802322e-08, 1, 0, 0, 0)
+material_override = ExtResource("1_13gn2")
+mesh = SubResource("BoxMesh_qk62m")

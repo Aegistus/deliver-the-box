@@ -1,5 +1,9 @@
 extends CharacterBody3D
+class_name Player
 
+signal on_interact_in_range(new_interactable)
+
+# movement
 var walk_speed := 5.0
 var sprint_speed := 8.0
 var air_speed := 3.0
@@ -16,8 +20,13 @@ var base_fov := 75.0
 var fov_change := 1.2
 
 var gravity := 9.8
+
+# interaction
+var current_interactable
+
 @onready var head = %Head
 @onready var camera = %Camera
+@onready var interact_raycast = %InteractRaycast
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -26,9 +35,16 @@ func _unhandled_input(event):
 	if event is InputEventMouseMotion:
 		head.rotate_y(-event.relative.x * mouse_sensitivity)
 		camera.rotate_x(-event.relative.y * mouse_sensitivity)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-40), deg_to_rad(60))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
 
 func _physics_process(delta):
+	### INTERACTION ###
+	var new_interactable = interact_raycast.get_collider()
+	if new_interactable != current_interactable:
+		current_interactable = new_interactable
+		on_interact_in_range.emit(new_interactable)
+	
+	### MOVEMENT ###
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	

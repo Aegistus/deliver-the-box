@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cp4absrhqtpj0"]
 
 [ext_resource type="Texture2D" uid="uid://nrm0qlneh05r" path="res://ui/crosshair.png" id="1_cfom6"]
+[ext_resource type="Script" uid="uid://g14hdvefkvc8" path="res://ui/interact_tooltip.gd" id="2_vq5xy"]
 
 [node name="PlayerUI" type="Control" unique_id=1802423578]
 layout_mode = 3
@@ -27,3 +28,14 @@ grow_vertical = 2
 scale = Vector2(1.525, 1.525)
 texture = ExtResource("1_cfom6")
 expand_mode = 3
+
+[node name="InteractTooltip" type="RichTextLabel" parent="." unique_id=2007424386]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 312.0
+offset_right = 756.0
+offset_bottom = 337.0
+text = "Press E to Interact"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_vq5xy")
