@@ -23,10 +23,12 @@ var gravity := 9.8
 
 # interaction
 var current_interactable
+var currently_carrying
 
 @onready var head = %Head
 @onready var camera = %Camera
 @onready var interact_raycast = %InteractRaycast
+@onready var carrying_point = %CarryingPoint
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -36,6 +38,10 @@ func _unhandled_input(event):
 		head.rotate_y(-event.relative.x * mouse_sensitivity)
 		camera.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+	if event.is_action_pressed("escape"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if event.is_action_pressed("click"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta):
 	### INTERACTION ###
@@ -43,6 +49,8 @@ func _physics_process(delta):
 	if new_interactable != current_interactable:
 		current_interactable = new_interactable
 		on_interact_in_range.emit(new_interactable)
+	if Input.is_action_just_pressed("interact") and current_interactable:
+		current_interactable.interact(self)
 	
 	### MOVEMENT ###
 	if not is_on_floor():
@@ -81,3 +89,10 @@ func headbob(time) -> Vector3:
 	pos.y = sin(time * bob_frequency) * bob_amp
 	pos.x = cos(time * bob_frequency / 2) * bob_amp
 	return pos
+
+func carry(object):
+	if currently_carrying != null:
+		get_tree().root.add_child(currently_carrying)
+	currently_carrying = object
+	currently_carrying.reparent(carrying_point)
+	carrying_point.node_b = currently_carrying.get_path()

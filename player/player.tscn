@@ -6,6 +6,9 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_u4xt3"]
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_qk62m"]
+radius = 0.01
+
 [node name="Player" type="CharacterBody3D" unique_id=599480128 groups=["Player"]]
 script = ExtResource("1_oul6g")
 
@@ -27,3 +30,13 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 target_position = Vector3(0, -2, 0)
 collision_mask = 4
+
+[node name="CarryingPoint" type="Generic6DOFJoint3D" parent="Head/Camera" unique_id=109212847]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2)
+node_a = NodePath("StaticBody3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Head/Camera/CarryingPoint" unique_id=753494404]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera/CarryingPoint/StaticBody3D" unique_id=1301187378]
+shape = SubResource("SphereShape3D_qk62m")
