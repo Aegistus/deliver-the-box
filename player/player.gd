@@ -92,7 +92,14 @@ func headbob(time) -> Vector3:
 
 func carry(object):
 	if currently_carrying != null:
-		get_tree().root.add_child(currently_carrying)
+		if currently_carrying == object:
+			drop(currently_carrying)
+			return
+		else:
+			drop(currently_carrying)
 	currently_carrying = object
-	currently_carrying.reparent(carrying_point)
 	carrying_point.node_b = currently_carrying.get_path()
+
+func drop(object):
+	carrying_point.node_b = ""
+	currently_carrying = null
