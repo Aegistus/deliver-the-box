@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://doe5takjsgt40" path="res://player/player.tscn" id="1_6d8bg"]
 [ext_resource type="PackedScene" uid="uid://cp4absrhqtpj0" path="res://ui/player_ui.tscn" id="3_keei5"]
+[ext_resource type="PackedScene" uid="uid://bklms31au6uik" path="res://objects/objective/objective.tscn" id="4_ah2my"]
 [ext_resource type="PackedScene" uid="uid://cve6fjpdm24pb" path="res://objects/the_box/the_box.tscn" id="4_dmrny"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_keei5"]
@@ -84,3 +85,6 @@ follow_viewport_enabled = true
 
 [node name="TheBox" parent="." unique_id=1953151953 instance=ExtResource("4_dmrny")]
 transform = Transform3D(-0.31365985, -0.37528247, 0.87222743, 0.5277663, -0.8325263, -0.16841185, 0.78935426, 0.4075082, 0.4591917, 0.25, 2, -3.25)
+
+[node name="Objective" parent="." unique_id=2028633888 instance=ExtResource("4_ah2my")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -21.5)
