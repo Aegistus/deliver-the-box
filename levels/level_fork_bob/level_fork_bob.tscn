@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://bmi3o4l23toqn"]
+
+[ext_resource type="Script" uid="uid://16sghvuxvhvx" path="res://levels/level_fork_bob/level_fork_bob.gd" id="1_cv8u6"]
+[ext_resource type="Material" uid="uid://cprbeofd7iu1s" path="res://objects/scenery/ground_mat.tres" id="2_t7xnu"]
+[ext_resource type="Material" uid="uid://crla80sy30um7" path="res://objects/scenery/wall_mat.tres" id="3_8v6r0"]
+[ext_resource type="PackedScene" uid="uid://doe5takjsgt40" path="res://player/player.tscn" id="4_00fek"]
+[ext_resource type="PackedScene" uid="uid://bxi5lnx87xt4p" path="res://objects/scenery/door/door.tscn" id="5_o6pd3"]
+[ext_resource type="PackedScene" uid="uid://bklms31au6uik" path="res://objects/objective/objective.tscn" id="6_br6ii"]
+[ext_resource type="PackedScene" uid="uid://cve6fjpdm24pb" path="res://objects/the_box/the_box.tscn" id="7_3gaay"]
+[ext_resource type="PackedScene" uid="uid://cp4absrhqtpj0" path="res://ui/player_ui.tscn" id="8_57egb"]
+[ext_resource type="PackedScene" uid="uid://cs6th11a3cbmo" path="res://ui/pause_menu/pause_menu.tscn" id="9_u3p3u"]
+[ext_resource type="PackedScene" uid="uid://clywt3lidi7sb" path="res://ui/win_menu/win_level_menu.tscn" id="10_rcpud"]
+[ext_resource type="Script" uid="uid://bbkrtqey37fi1" path="res://levels/level_fork_bob/game_console.gd" id="11_t7xnu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3hnis"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_1n0fi"]
+sky_material = SubResource("ProceduralSkyMaterial_3hnis")
+
+[sub_resource type="Environment" id="Environment_dc7e1"]
+background_mode = 2
+sky = SubResource("Sky_1n0fi")
+glow_enabled = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qk62m"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxg1c"]
+bg_color = Color(0, 0, 0, 0.40784314)
+
+[node name="LevelForkBob" type="Node3D" unique_id=1810524139]
+script = ExtResource("1_cv8u6")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1105585404]
+environment = SubResource("Environment_dc7e1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1890940681]
+transform = Transform3D(0.8660253, 0.43301284, -0.25000006, 2.780595e-08, 0.49999994, 0.86602545, 0.5000001, -0.75, 0.4330126, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Scenery" type="Node3D" parent="." unique_id=5841983]
+
+[node name="Floor" type="CSGBox3D" parent="Scenery" unique_id=1303813937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -5.5)
+material_override = ExtResource("2_t7xnu")
+use_collision = true
+size = Vector3(8, 0.5, 23)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scenery" unique_id=864141261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.375, 1.5, -0.25)
+material_override = ExtResource("3_8v6r0")
+use_collision = true
+size = Vector3(2.25, 3, 0.5)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Scenery" unique_id=1334394065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.75, 1.5, -5.5)
+material_override = ExtResource("3_8v6r0")
+use_collision = true
+size = Vector3(0.5, 3, 23)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Scenery" unique_id=1990714178]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.75, 1.5, -5.5)
+material_override = ExtResource("3_8v6r0")
+use_collision = true
+size = Vector3(0.5, 3, 23)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Scenery" unique_id=32040611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -16.75)
+material_override = ExtResource("3_8v6r0")
+use_collision = true
+size = Vector3(7, 3, 0.5)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Scenery" unique_id=1708605416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 5.75)
+material_override = ExtResource("3_8v6r0")
+use_collision = true
+size = Vector3(7, 3, 0.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Scenery" unique_id=664222542]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.375, 1.5, -0.25)
+material_override = ExtResource("3_8v6r0")
+use_collision = true
+size = Vector3(2.25, 3, 0.5)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Scenery" unique_id=734876298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.625)
+material_override = ExtResource("3_8v6r0")
+use_collision = true
+size = Vector3(2.25, 0.5, 2.25)
+
+[node name="Player" parent="." unique_id=599480128 instance=ExtResource("4_00fek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.25, 4)
+
+[node name="Door" parent="." unique_id=1783179016 instance=ExtResource("5_o6pd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+
+[node name="Objective" parent="." unique_id=2028633888 instance=ExtResource("6_br6ii")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -15.5)
+
+[node name="TheBox" parent="." unique_id=1953151953 instance=ExtResource("7_3gaay")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.75, -4.75)
+
+[node name="PlayerUI" parent="." unique_id=1802423578 instance=ExtResource("8_57egb")]
+
+[node name="PauseMenu" parent="." unique_id=1873073820 instance=ExtResource("9_u3p3u")]
+visible = false
+
+[node name="WinLevelMenu" parent="." unique_id=1923333696 instance=ExtResource("10_rcpud")]
+process_mode = 3
+
+[node name="GameConsole" type="Control" parent="." unique_id=1943402838 groups=["GameConsole"]]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -81.0
+offset_right = 301.0
+offset_bottom = 81.0
+grow_vertical = 2
+script = ExtResource("11_t7xnu")
+
+[node name="PanelContainer" type="PanelContainer" parent="GameConsole" unique_id=149020501]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_qk62m")
+
+[node name="Panel" type="Panel" parent="GameConsole/PanelContainer" unique_id=51519235]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dxg1c")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="GameConsole/PanelContainer" unique_id=1910660409]
+unique_name_in_owner = true
+layout_mode = 2
+follow_focus = true
+
+[node name="MessageContainer" type="VBoxContainer" parent="GameConsole/PanelContainer/ScrollContainer" unique_id=86840756]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 158)
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2

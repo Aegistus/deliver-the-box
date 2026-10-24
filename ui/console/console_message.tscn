@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://btrvrqlkwtufu"]
+
+[sub_resource type="Theme" id="Theme_qk62m"]
+ChatLog/base_type = &"RichTextLabel"
+ChatLog/colors/default_color = Color(1, 0, 0.03529412, 1)
+
+[node name="ConsoleMessage" type="RichTextLabel" unique_id=721857470]
+custom_minimum_size = Vector2(0, 25)
+theme = SubResource("Theme_qk62m")
+theme_type_variation = &"ChatLog"
+text = " test print"
+fit_content = true
+scroll_active = false

@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bql4dx3j2de8w"]
+
+[ext_resource type="Script" uid="uid://cw2sn6qbfe623" path="res://ui/ping_display/ping_display.gd" id="1_hl78x"]
+[ext_resource type="Theme" uid="uid://bntrye3gnbaqd" path="res://theme.tres" id="2_83rnb"]
+
+[node name="PingDisplay" type="Control" unique_id=68503565]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 264.0
+offset_bottom = 66.0
+script = ExtResource("1_hl78x")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1016873734]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ping" type="RichTextLabel" parent="VBoxContainer" unique_id=339915095]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme = ExtResource("2_83rnb")
+theme_type_variation = &"Stats"
+text = "Ping: 100"
+
+[node name="Server" type="RichTextLabel" parent="VBoxContainer" unique_id=1200050687]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme = ExtResource("2_83rnb")
+theme_type_variation = &"Stats"
+text = "Server: 北京"
