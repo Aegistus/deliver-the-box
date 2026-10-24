@@ -83,7 +83,7 @@ size = Vector3(2.25, 0.5, 2.25)
 
 [node name="Player" parent="." unique_id=599480128 instance=ExtResource("3_q56vu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.25, 4)
-delayed_input = true
+delay_input = true
 
 [node name="Door" parent="." unique_id=1783179016 instance=ExtResource("4_e3ax1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)

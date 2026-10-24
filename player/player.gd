@@ -5,6 +5,8 @@ signal on_interact_in_range(new_interactable)
 signal on_pickup_object
 signal on_drop_object
 
+@export var delay_input := false
+
 # movement
 var walk_speed := 5.0
 var sprint_speed := 8.0
@@ -26,6 +28,8 @@ var gravity := 9.8
 # interaction
 var current_interactable
 var currently_carrying
+
+var input_delay_time := 1.0
 
 @onready var head = %Head
 @onready var camera = %Camera
@@ -52,8 +56,12 @@ func _physics_process(delta):
 		current_interactable = new_interactable
 		on_interact_in_range.emit(new_interactable)
 	if Input.is_action_just_pressed("interact") and current_interactable:
+		if delay_input:
+			await get_tree().create_timer(input_delay_time).timeout
 		current_interactable.interact(self)
 	if Input.is_action_just_pressed("drop"):
+		if delay_input:
+			await get_tree().create_timer(input_delay_time).timeout
 		drop(currently_carrying)
 	
 	### MOVEMENT ###
@@ -61,11 +69,15 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		if delay_input:
+			await get_tree().create_timer(input_delay_time).timeout
 		velocity.y = jump_velocity
 	
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
+		if delay_input:
+			await get_tree().create_timer(input_delay_time).timeout
 		var speed = sprint_speed if Input.is_action_pressed("sprint") else walk_speed
 		if direction:
 			velocity.x = direction.x * speed
@@ -74,6 +86,8 @@ func _physics_process(delta):
 			velocity.x = lerp(velocity.x, direction.x * speed, delta * 8.0)
 			velocity.z = lerp(velocity.z, direction.z * speed, delta * 8.0)
 	else:
+		if delay_input:
+			await get_tree().create_timer(input_delay_time).timeout
 		velocity.x = lerp(velocity.x, direction.x * air_speed, delta * 2.0)
 		velocity.z = lerp(velocity.z, direction.z * air_speed, delta * 2.0)
 	
