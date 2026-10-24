@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cktxl1k1dq5bb" path="res://objects/scenery/door/door.gd" id="1_pf80j"]
 [ext_resource type="Script" uid="uid://d3mmlsqxmwiaw" path="res://objects/scenery/door/model.gd" id="2_yriku"]
 
-[node name="Door" type="Node3D" unique_id=1783179016]
+[node name="Door" type="Node3D" unique_id=1783179016 groups=["EntryDoor"]]
 script = ExtResource("1_pf80j")
 
 [node name="Model" type="CSGBox3D" parent="." unique_id=2083975984]
