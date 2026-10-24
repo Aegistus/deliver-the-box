@@ -28,6 +28,7 @@ offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.525, 1.525)
+mouse_filter = 2
 texture = ExtResource("1_cfom6")
 expand_mode = 3
 
