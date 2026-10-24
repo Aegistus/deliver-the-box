@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cp4absrhqtpj0" path="res://ui/player_ui.tscn" id="3_keei5"]
 [ext_resource type="PackedScene" uid="uid://bklms31au6uik" path="res://objects/objective/objective.tscn" id="4_ah2my"]
 [ext_resource type="PackedScene" uid="uid://cve6fjpdm24pb" path="res://objects/the_box/the_box.tscn" id="4_dmrny"]
+[ext_resource type="PackedScene" uid="uid://clywt3lidi7sb" path="res://ui/win_menu/win_level_menu.tscn" id="6_jo783"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_keei5"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -82,9 +83,13 @@ size = Vector3(1, 1.25, 3)
 [node name="TheBox" parent="." unique_id=1953151953 instance=ExtResource("4_dmrny")]
 transform = Transform3D(-0.31365985, -0.37528247, 0.87222743, 0.5277663, -0.8325263, -0.16841185, 0.78935426, 0.4075082, 0.4591917, 0.25, 2, -3.25)
 
-[node name="Objective" parent="." unique_id=2028633888 instance=ExtResource("4_ah2my")]
+[node name="Objective" parent="." unique_id=2028633888 groups=["Objective"] instance=ExtResource("4_ah2my")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, -21.5)
 
 [node name="PlayerUI" parent="." unique_id=1802423578 instance=ExtResource("3_keei5")]
 
 [node name="PauseMenu" parent="." unique_id=1873073820 instance=ExtResource("3_ah2my")]
+visible = false
+
+[node name="WinLevelMenu" parent="." unique_id=1923333696 instance=ExtResource("6_jo783")]
+process_mode = 3

@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://clywt3lidi7sb"]
+
+[ext_resource type="Script" uid="uid://bs80a80661tnj" path="res://ui/win_menu/win_level_menu.gd" id="1_thv3q"]
+[ext_resource type="Theme" uid="uid://bntrye3gnbaqd" path="res://theme.tres" id="2_q2pp0"]
+
+[node name="WinLevelMenu" type="Control" unique_id=1923333696]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_thv3q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2003634136]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5058824)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1256663968]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.5
+offset_top = -63.0
+offset_right = 104.5
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1751048798]
+custom_minimum_size = Vector2(0, 22.615)
+layout_mode = 2
+theme = ExtResource("2_q2pp0")
+theme_type_variation = &"Tooltip"
+text = "You Won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextLevelButton" type="Button" parent="VBoxContainer" unique_id=589592925]
+layout_mode = 2
+text = "Next Level"
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer" unique_id=201416505]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="ExitToDesktop" type="Button" parent="VBoxContainer" unique_id=1542459438]
+layout_mode = 2
+text = "Exit to Desktop"

@@ -26,6 +26,7 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 [global_group]
 
 Player="the player"
+Objective="the objective"
 
 [gui]
 

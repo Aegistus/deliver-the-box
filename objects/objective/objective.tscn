@@ -9,6 +9,33 @@ size = Vector3(1.4, 0.5, 1.4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dxg1c"]
 size = Vector3(0.1, 1, 1.4)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bb83m"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+direction = Vector3(0, 1, 0)
+initial_velocity_max = 20.0
+damping_max = 0.34600002
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo783"]
+albedo_color = Color(1, 0.6873479, 0.63836384, 1)
+emission_enabled = true
+emission = Color(1, 0.6862745, 0.6392157, 1)
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_fugl5"]
+material = SubResource("StandardMaterial3D_jo783")
+size = 0.05
+section_length = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pjwgr"]
+albedo_color = Color(0.7908824, 0.82144207, 0, 1)
+emission_enabled = true
+emission = Color(0.7921569, 0.81960785, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_bw5l3"]
+material = SubResource("StandardMaterial3D_pjwgr")
+size = Vector2(0.1, 0.1)
+
 [node name="Objective" type="Node3D" unique_id=2028633888]
 script = ExtResource("1_bb83m")
 
@@ -53,3 +80,24 @@ shape = SubResource("BoxShape3D_dxg1c")
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D" unique_id=1501955328]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.04999993, 0, -0.7)
 shape = SubResource("BoxShape3D_dxg1c")
+
+[node name="Ribbons" type="GPUParticles3D" parent="." unique_id=2044168817]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05316931, 0.38760534, 0.11960602)
+emitting = false
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_bb83m")
+draw_pass_1 = SubResource("RibbonTrailMesh_fugl5")
+
+[node name="Confetti" type="GPUParticles3D" parent="." unique_id=907437535]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05316931, 0.38760534, 0.11960602)
+emitting = false
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_bb83m")
+draw_pass_1 = SubResource("QuadMesh_bw5l3")
