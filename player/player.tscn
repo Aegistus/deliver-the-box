@@ -33,8 +33,11 @@ collision_mask = 4
 
 [node name="CarryingPoint" type="Generic6DOFJoint3D" parent="Head/Camera" unique_id=109212847]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -2.6954951)
 node_a = NodePath("StaticBody3D")
+linear_spring_x/enabled = true
+linear_spring_y/enabled = true
+linear_spring_z/enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Head/Camera/CarryingPoint" unique_id=753494404]
 
