@@ -30,8 +30,7 @@ environment = SubResource("Environment_ah2my")
 
 [node name="Player" parent="." unique_id=599480128 instance=ExtResource("1_6d8bg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25, 0)
-collision_layer = 3
-collision_mask = 3
+collision_mask = 7
 
 [node name="Scenery" type="Node3D" parent="." unique_id=707620670]
 
