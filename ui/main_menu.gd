@@ -29,7 +29,8 @@ func _on_1_4_pressed() -> void:
 func _on_1_5_pressed() -> void:
 	get_tree().change_scene_to_file("res://levels/level_floating_point/level_floating_point.tscn")
 
-
+func _on_1_6_pressed() -> void:
+	get_tree().change_scene_to_file("res://levels/level_goo/level_goo.tscn")
 
 func _on_1_7_pressed() -> void:
 	get_tree().change_scene_to_file("res://levels/level_fork_bob/level_fork_bob.tscn")

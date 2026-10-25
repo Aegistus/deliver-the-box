@@ -1,12 +1,16 @@
 [gd_scene format=3 uid="uid://4athgllqmmmp"]
 
 [ext_resource type="PackedScene" uid="uid://c8xu4b0c3me2l" path="res://objects/scenery/course.tscn" id="1_8wye8"]
+[ext_resource type="Script" uid="uid://cg6th5kufo5fy" path="res://levels/level_goo/level_goo.gd" id="1_lg2wm"]
 [ext_resource type="PackedScene" uid="uid://doe5takjsgt40" path="res://player/player.tscn" id="2_ysq4b"]
 [ext_resource type="PackedScene" uid="uid://bklms31au6uik" path="res://objects/objective/objective.tscn" id="3_ewhow"]
 [ext_resource type="PackedScene" uid="uid://cve6fjpdm24pb" path="res://objects/the_box/the_box.tscn" id="4_418t7"]
 [ext_resource type="PackedScene" uid="uid://cp4absrhqtpj0" path="res://ui/player_ui.tscn" id="5_tfoox"]
 [ext_resource type="PackedScene" uid="uid://cs6th11a3cbmo" path="res://ui/pause_menu/pause_menu.tscn" id="6_207ew"]
 [ext_resource type="PackedScene" uid="uid://clywt3lidi7sb" path="res://ui/win_menu/win_level_menu.tscn" id="7_t5ovr"]
+[ext_resource type="Texture2D" uid="uid://4eoa76wxkju8" path="res://objects/viscous/viscous.jpg" id="8_lm2ud"]
+[ext_resource type="Script" uid="uid://brganftghnamj" path="res://objects/viscous/viscous.gd" id="8_vupb2"]
+[ext_resource type="AudioStream" uid="uid://i7fuvjj1sf67" path="res://objects/viscous/Viscous_use_power4_19.ogg" id="11_tvy5u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3hnis"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,13 +24,25 @@ background_mode = 2
 sky = SubResource("Sky_1n0fi")
 glow_enabled = true
 
-[node name="Level01Introduction" type="Node3D" unique_id=1810524139]
+[sub_resource type="BoxShape3D" id="BoxShape3D_qk62m"]
+size = Vector3(37.75, 34.25, 1.25)
+
+[node name="LevelGoo" type="Node3D" unique_id=1810524139 node_paths=PackedStringArray("viscous")]
+script = ExtResource("1_lg2wm")
+viscous = NodePath("Viscous")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1105585404]
 environment = SubResource("Environment_dc7e1")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1890940681]
 transform = Transform3D(0.8660253, 0.43301284, -0.25000006, 2.780595e-08, 0.49999994, 0.86602545, 0.5000001, -0.75, 0.4330126, 0, 0, 0)
+shadow_enabled = true
+
+[node name="GooLight" type="DirectionalLight3D" parent="." unique_id=223328561]
+transform = Transform3D(0.8660253, 0.43301284, -0.25000006, 2.780595e-08, 0.49999994, 0.86602545, 0.5000001, -0.75, 0.4330126, 0, 0, 0)
+visible = false
+light_color = Color(0, 1, 0, 1)
+light_energy = 3.253
 shadow_enabled = true
 
 [node name="Course" parent="." unique_id=196895958 instance=ExtResource("1_8wye8")]
@@ -49,3 +65,20 @@ visible = false
 
 [node name="WinLevelMenu" parent="." unique_id=1923333696 instance=ExtResource("7_t5ovr")]
 process_mode = 3
+
+[node name="Viscous" type="Node3D" parent="." unique_id=1484645983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.25, 34.25)
+script = ExtResource("8_vupb2")
+
+[node name="Sprite3D" type="Sprite3D" parent="Viscous" unique_id=1359347131]
+transform = Transform3D(9.554094, 0, 0, 0, 9.554094, 0, 0, 0, 1.995, 0, -2, 0)
+texture = ExtResource("8_lm2ud")
+
+[node name="Area3D" type="Area3D" parent="Viscous" unique_id=1354380208]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Viscous/Area3D" unique_id=975129844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -2.125, 0.625)
+shape = SubResource("BoxShape3D_qk62m")
+
+[node name="IMMADEOFGOO" type="AudioStreamPlayer3D" parent="." unique_id=408815173]
+stream = ExtResource("11_tvy5u")

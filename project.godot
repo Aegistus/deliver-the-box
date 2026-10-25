@@ -30,6 +30,7 @@ Objective="the objective"
 EntryDoor="the door from the main entry area"
 GameConsole="the output console"
 Level="the base node of the level"
+Camera=""
 
 [gui]
 

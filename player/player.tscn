@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://f8200clyobnl" path="res://player/player.gd" id="1_oul6g"]
 [ext_resource type="AudioStream" uid="uid://cdkmwtulb2h6c" path="res://player/footsteps/grass_footsteps.ogg" id="2_boad6"]
+[ext_resource type="Script" uid="uid://d1mdgqey54m3w" path="res://player/camera.gd" id="2_rgyib"]
 [ext_resource type="Script" uid="uid://ddp0t3dsih7il" path="res://player/statemachine/state_machine.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://ccofbxwfbuqen" path="res://player/statemachine/stand_state.gd" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://bjcbvgxn8i40e" path="res://player/statemachine/walk_state.gd" id="5_g6k8r"]
@@ -34,8 +35,9 @@ shape = SubResource("CapsuleShape3D_u4xt3")
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
-[node name="Camera" type="Camera3D" parent="Head" unique_id=607409118]
+[node name="Camera" type="Camera3D" parent="Head" unique_id=607409118 groups=["Camera"]]
 unique_name_in_owner = true
+script = ExtResource("2_rgyib")
 
 [node name="InteractRaycast" type="RayCast3D" parent="Head/Camera" unique_id=602079160]
 unique_name_in_owner = true

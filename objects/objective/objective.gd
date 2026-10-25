@@ -1,4 +1,5 @@
 extends Node3D
+class_name Objective
 
 signal on_objective_completed
 
