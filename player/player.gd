@@ -48,6 +48,8 @@ func _unhandled_input(event):
 		head.rotate_y(-event.relative.x * mouse_sensitivity)
 		camera.rotate_x(-event.relative.y * mouse_sensitivity)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-80), deg_to_rad(80))
+	if event.is_action_pressed("reset"):
+		get_tree().reload_current_scene()
 	#if event.is_action_pressed("escape"):
 		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	#if event.is_action_pressed("click"):

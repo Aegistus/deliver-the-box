@@ -154,7 +154,6 @@ use_collision = true
 size = Vector3(2.25, 1.25, 2.25)
 
 [node name="MovingBlock" parent="." unique_id=1426893046 instance=ExtResource("3_uh8e6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.625, -11.125)
 
 [node name="MovingBlock2" parent="." unique_id=1937003767 instance=ExtResource("4_j4e22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.625, -14.375)
@@ -172,206 +171,208 @@ script = ExtResource("7_j4e22")
 [node name="Door" parent="." unique_id=1783179016 instance=ExtResource("8_j4e22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
 
-[node name="Grass" type="Node3D" parent="." unique_id=335005512]
+[node name="Grass" type="Node3D" parent="." unique_id=1552554481]
+
+[node name="Grass" type="Node3D" parent="Grass" unique_id=335005512]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.75)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass" unique_id=515635595]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass" unique_id=515635595]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass" unique_id=1090825844]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass" unique_id=1090825844]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass2" type="Node3D" parent="." unique_id=2045783265]
+[node name="Grass2" type="Node3D" parent="Grass" unique_id=2045783265]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.5)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass2" unique_id=618273161]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass2" unique_id=618273161]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass2" unique_id=859919699]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass2" unique_id=859919699]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass3" type="Node3D" parent="." unique_id=649710298]
+[node name="Grass3" type="Node3D" parent="Grass" unique_id=649710298]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass3" unique_id=839045477]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass3" unique_id=839045477]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass3" unique_id=1541173653]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass3" unique_id=1541173653]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass4" type="Node3D" parent="." unique_id=179743095]
+[node name="Grass4" type="Node3D" parent="Grass" unique_id=179743095]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14.5)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass4" unique_id=842240000]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass4" unique_id=842240000]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass4" unique_id=1989799013]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass4" unique_id=1989799013]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass5" type="Node3D" parent="." unique_id=1070368277]
+[node name="Grass5" type="Node3D" parent="Grass" unique_id=1070368277]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16.25)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass5" unique_id=121666030]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass5" unique_id=121666030]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass5" unique_id=1657950143]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass5" unique_id=1657950143]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass6" type="Node3D" parent="." unique_id=1627876433]
+[node name="Grass6" type="Node3D" parent="Grass" unique_id=1627876433]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass6" unique_id=187495778]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass6" unique_id=187495778]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass6" unique_id=1764555798]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass6" unique_id=1764555798]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass7" type="Node3D" parent="." unique_id=672954425]
+[node name="Grass7" type="Node3D" parent="Grass" unique_id=672954425]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30.75)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass7" unique_id=827421245]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass7" unique_id=827421245]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass7" unique_id=134348603]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass7" unique_id=134348603]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass8" type="Node3D" parent="." unique_id=2029264522]
+[node name="Grass8" type="Node3D" parent="Grass" unique_id=2029264522]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34.75)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass8" unique_id=307716664]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass8" unique_id=307716664]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass8" unique_id=665814908]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass8" unique_id=665814908]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass9" type="Node3D" parent="." unique_id=2022909507]
+[node name="Grass9" type="Node3D" parent="Grass" unique_id=2022909507]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -64.75)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass9" unique_id=1049846147]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass9" unique_id=1049846147]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass9" unique_id=1099608402]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass9" unique_id=1099608402]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass10" type="Node3D" parent="." unique_id=1088162080]
+[node name="Grass10" type="Node3D" parent="Grass" unique_id=1088162080]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -70.25)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass10" unique_id=956906555]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass10" unique_id=956906555]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass10" unique_id=1848979133]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass10" unique_id=1848979133]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass11" type="Node3D" parent="." unique_id=1249170828]
+[node name="Grass11" type="Node3D" parent="Grass" unique_id=1249170828]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -75.75)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass11" unique_id=565746778]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass11" unique_id=565746778]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass11" unique_id=953467698]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass11" unique_id=953467698]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass12" type="Node3D" parent="." unique_id=1063277523]
+[node name="Grass12" type="Node3D" parent="Grass" unique_id=1063277523]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -81.25)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass12" unique_id=1942315928]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass12" unique_id=1942315928]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass12" unique_id=910542869]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass12" unique_id=910542869]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass13" type="Node3D" parent="." unique_id=603400540]
+[node name="Grass13" type="Node3D" parent="Grass" unique_id=603400540]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -86.75)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass13" unique_id=1100545447]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass13" unique_id=1100545447]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_5cmhr")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass13" unique_id=843528431]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass13" unique_id=843528431]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass14" type="Node3D" parent="." unique_id=1180468779]
+[node name="Grass14" type="Node3D" parent="Grass" unique_id=1180468779]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -41.5)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass14" unique_id=588556424]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass14" unique_id=588556424]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_r378t")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass14" unique_id=330286403]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass14" unique_id=330286403]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass15" type="Node3D" parent="." unique_id=365427950]
+[node name="Grass15" type="Node3D" parent="Grass" unique_id=365427950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -47.75)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass15" unique_id=1617579324]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass15" unique_id=1617579324]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_r378t")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass15" unique_id=1208681368]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass15" unique_id=1208681368]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass16" type="Node3D" parent="." unique_id=396239129]
+[node name="Grass16" type="Node3D" parent="Grass" unique_id=396239129]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -54)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass16" unique_id=861862698]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass16" unique_id=861862698]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_r378t")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass16" unique_id=1080945822]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass16" unique_id=1080945822]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
 
-[node name="Grass17" type="Node3D" parent="." unique_id=1442444377]
+[node name="Grass17" type="Node3D" parent="Grass" unique_id=1442444377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -58.5)
 
-[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass17" unique_id=1609334575]
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="Grass/Grass17" unique_id=1609334575]
 cast_shadow = 0
 multimesh = SubResource("MultiMesh_r378t")
 
-[node name="Plane" type="MeshInstance3D" parent="Grass17" unique_id=1839634338]
+[node name="Plane" type="MeshInstance3D" parent="Grass/Grass17" unique_id=1839634338]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_qk62m")
