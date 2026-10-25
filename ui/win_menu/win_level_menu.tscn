@@ -55,3 +55,7 @@ text = "Main Menu"
 [node name="ExitToDesktop" type="Button" parent="VBoxContainer" unique_id=1542459438]
 layout_mode = 2
 text = "Exit to Desktop"
+
+[connection signal="pressed" from="VBoxContainer/NextLevelButton" to="." method="go_to_next_level"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="go_to_main_menu"]
+[connection signal="pressed" from="VBoxContainer/ExitToDesktop" to="." method="exit_to_desktop"]

@@ -1,5 +1,7 @@
 extends Control
 
+@export var next_level : StringName
+
 var objective
 
 func _ready():
@@ -15,9 +17,11 @@ func show_win_menu():
 
 func go_to_next_level():
 	get_tree().paused = false
+	get_tree().change_scene_to_file(next_level)
 
 func go_to_main_menu():
 	get_tree().paused = false
+	get_tree().change_scene_to_file("res://levels/main_menu.tscn")
 
 func exit_to_desktop():
 	get_tree().paused = false

@@ -23,7 +23,7 @@ func _on_1_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://levels/level_chug/level_chug.tscn")
 
 func _on_1_3_pressed() -> void:
-	get_tree().change_scene_to_file("res://levels/level_dialup.tscn")
+	get_tree().change_scene_to_file("res://levels/level_dialup/level_dialup.tscn")
 
 func _on_1_4_pressed() -> void:
 	get_tree().change_scene_to_file("res://levels/level_bad_reaction.tscn")

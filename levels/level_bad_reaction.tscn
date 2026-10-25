@@ -86,6 +86,7 @@ visible = false
 
 [node name="WinLevelMenu" parent="." unique_id=1923333696 instance=ExtResource("9_neps6")]
 process_mode = 3
+next_level = &"uid://b82tv733nf7g1"
 
 [node name="Course" parent="." unique_id=196895958 instance=ExtResource("8_boea6")]
 

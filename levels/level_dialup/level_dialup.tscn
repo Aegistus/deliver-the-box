@@ -1,17 +1,17 @@
 [gd_scene format=3 uid="uid://toyelnc6bngd"]
 
-[ext_resource type="Script" uid="uid://bqwu57flwhylu" path="res://levels/level_dialup/level_dialup.gd" id="1_536un"]
-[ext_resource type="PackedScene" uid="uid://doe5takjsgt40" path="res://player/player.tscn" id="3_536un"]
-[ext_resource type="PackedScene" uid="uid://bklms31au6uik" path="res://objects/objective/objective.tscn" id="5_lnaqb"]
-[ext_resource type="PackedScene" uid="uid://cve6fjpdm24pb" path="res://objects/the_box/the_box.tscn" id="6_vodkp"]
-[ext_resource type="PackedScene" uid="uid://cp4absrhqtpj0" path="res://ui/player_ui.tscn" id="7_xnw7u"]
-[ext_resource type="PackedScene" uid="uid://cs6th11a3cbmo" path="res://ui/pause_menu/pause_menu.tscn" id="8_8siee"]
-[ext_resource type="PackedScene" uid="uid://clywt3lidi7sb" path="res://ui/win_menu/win_level_menu.tscn" id="9_tq0en"]
-[ext_resource type="PackedScene" uid="uid://c8xu4b0c3me2l" path="res://objects/scenery/course.tscn" id="10_536un"]
-[ext_resource type="AudioStream" uid="uid://bmuaa7gghjtko" path="res://levels/level_dialup/dialup.ogg" id="10_clwdd"]
-[ext_resource type="PackedScene" uid="uid://bql4dx3j2de8w" path="res://ui/ping_display/ping_display.tscn" id="10_x2qtu"]
-[ext_resource type="Script" uid="uid://244u54y83jgk" path="res://ui/level_title.gd" id="11_clwdd"]
-[ext_resource type="Theme" uid="uid://bntrye3gnbaqd" path="res://theme.tres" id="12_lnaqb"]
+[ext_resource type="Script" uid="uid://bqwu57flwhylu" path="res://levels/level_dialup/level_dialup.gd" id="1_5gkfg"]
+[ext_resource type="PackedScene" uid="uid://doe5takjsgt40" path="res://player/player.tscn" id="2_m2d6d"]
+[ext_resource type="PackedScene" uid="uid://bklms31au6uik" path="res://objects/objective/objective.tscn" id="3_fc65f"]
+[ext_resource type="PackedScene" uid="uid://cve6fjpdm24pb" path="res://objects/the_box/the_box.tscn" id="4_m5rbf"]
+[ext_resource type="PackedScene" uid="uid://cp4absrhqtpj0" path="res://ui/player_ui.tscn" id="5_d0ro7"]
+[ext_resource type="PackedScene" uid="uid://cs6th11a3cbmo" path="res://ui/pause_menu/pause_menu.tscn" id="6_jprn6"]
+[ext_resource type="PackedScene" uid="uid://clywt3lidi7sb" path="res://ui/win_menu/win_level_menu.tscn" id="7_6oolc"]
+[ext_resource type="PackedScene" uid="uid://bql4dx3j2de8w" path="res://ui/ping_display/ping_display.tscn" id="8_sgie7"]
+[ext_resource type="PackedScene" uid="uid://c8xu4b0c3me2l" path="res://objects/scenery/course.tscn" id="9_wrrek"]
+[ext_resource type="AudioStream" uid="uid://bmuaa7gghjtko" path="res://levels/level_dialup/dialup.ogg" id="10_p5nrs"]
+[ext_resource type="Script" uid="uid://244u54y83jgk" path="res://ui/level_title.gd" id="11_l3xsj"]
+[ext_resource type="Theme" uid="uid://bntrye3gnbaqd" path="res://theme.tres" id="12_8q0m3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3hnis"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -63,7 +63,7 @@ _data = {
 }
 
 [node name="LevelDialup" type="Node3D" unique_id=1810524139 groups=["Level"]]
-script = ExtResource("1_536un")
+script = ExtResource("1_5gkfg")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1105585404]
 environment = SubResource("Environment_dc7e1")
@@ -72,29 +72,30 @@ environment = SubResource("Environment_dc7e1")
 transform = Transform3D(0.8660253, 0.43301284, -0.25000006, 2.780595e-08, 0.49999994, 0.86602545, 0.5000001, -0.75, 0.4330126, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Player" parent="." unique_id=599480128 instance=ExtResource("3_536un")]
+[node name="Player" parent="." unique_id=599480128 instance=ExtResource("2_m2d6d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.25, 4)
 
-[node name="Objective" parent="." unique_id=2028633888 instance=ExtResource("5_lnaqb")]
+[node name="Objective" parent="." unique_id=2028633888 instance=ExtResource("3_fc65f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -86.5)
 
-[node name="TheBox" parent="." unique_id=1953151953 instance=ExtResource("6_vodkp")]
+[node name="TheBox" parent="." unique_id=1953151953 instance=ExtResource("4_m5rbf")]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 2.25, -4.75)
 
-[node name="PlayerUI" parent="." unique_id=1802423578 instance=ExtResource("7_xnw7u")]
+[node name="PlayerUI" parent="." unique_id=1802423578 instance=ExtResource("5_d0ro7")]
 
-[node name="PauseMenu" parent="." unique_id=1873073820 instance=ExtResource("8_8siee")]
+[node name="PauseMenu" parent="." unique_id=1873073820 instance=ExtResource("6_jprn6")]
 visible = false
 
-[node name="WinLevelMenu" parent="." unique_id=1923333696 instance=ExtResource("9_tq0en")]
+[node name="WinLevelMenu" parent="." unique_id=1923333696 instance=ExtResource("7_6oolc")]
 process_mode = 3
+next_level = &"uid://dreqshdaup1nn"
 
-[node name="PingDisplay" parent="." unique_id=68503565 instance=ExtResource("10_x2qtu")]
+[node name="PingDisplay" parent="." unique_id=68503565 instance=ExtResource("8_sgie7")]
 
-[node name="Course" parent="." unique_id=196895958 instance=ExtResource("10_536un")]
+[node name="Course" parent="." unique_id=196895958 instance=ExtResource("9_wrrek")]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1163632171]
-stream = ExtResource("10_clwdd")
+stream = ExtResource("10_p5nrs")
 attenuation_model = 3
 
 [node name="LevelTitle" type="Control" parent="." unique_id=203789113]
@@ -107,7 +108,7 @@ offset_top = 66.0
 offset_right = 184.0
 offset_bottom = 116.0
 grow_horizontal = 2
-script = ExtResource("11_clwdd")
+script = ExtResource("11_l3xsj")
 
 [node name="Title" type="RichTextLabel" parent="LevelTitle" unique_id=844397014]
 layout_mode = 1
@@ -118,7 +119,7 @@ offset_top = -201.0
 offset_bottom = -201.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("12_lnaqb")
+theme = ExtResource("12_8q0m3")
 theme_type_variation = &"title"
 text = "DIALUP"
 horizontal_alignment = 1
