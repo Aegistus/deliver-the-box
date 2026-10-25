@@ -61,3 +61,5 @@ theme = ExtResource("2_le02u")
 text = "Exit to Desktop"
 
 [connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="resume"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitToDesktopButton" to="." method="_on_exit_to_desktop_button_pressed"]

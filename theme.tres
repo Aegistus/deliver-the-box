@@ -1,6 +1,34 @@
 [gd_resource type="Theme" format=3 uid="uid://bntrye3gnbaqd"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwn6e"]
+bg_color = Color(0.3610139, 0.2091971, 0.22206745, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.78860694, 0.78860694, 0.78860676, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvktn"]
+bg_color = Color(0.47131097, 0.2837193, 0.29610026, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.78860694, 0.78860694, 0.78860676, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [resource]
+Button/constants/outline_size = 10
+Button/styles/focus = SubResource("StyleBoxFlat_jwn6e")
+Button/styles/hover = SubResource("StyleBoxFlat_wvktn")
+Button/styles/normal = SubResource("StyleBoxFlat_jwn6e")
 title/base_type = &"RichTextLabel"
 title/colors/default_color = Color(1, 1, 1, 1)
 title/constants/outline_size = 12

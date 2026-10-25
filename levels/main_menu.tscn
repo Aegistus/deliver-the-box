@@ -38,6 +38,39 @@ border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.64187974, 0.4732337, 0.27659485, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6flho"]
+bg_color = Color(0.6221806, 0.39320773, 0.41135147, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.78860694, 0.78860694, 0.78860676, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwn6e"]
+bg_color = Color(0.47131097, 0.2837193, 0.29610026, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.78860694, 0.78860694, 0.78860676, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_6flho"]
+Button/constants/outline_size = 10
+Button/styles/hover = SubResource("StyleBoxFlat_6flho")
+Button/styles/normal = SubResource("StyleBoxFlat_jwn6e")
+title/base_type = &"RichTextLabel"
+title/colors/default_color = Color(1, 1, 1, 1)
+title/constants/outline_size = 12
+title/font_sizes/normal_font_size = 30
+
 [sub_resource type="Animation" id="Animation_6flho"]
 length = 0.001
 tracks/0/type = "value"
@@ -284,10 +317,12 @@ grow_vertical = 2
 
 [node name="PlayGame" type="Button" parent="MainMenu/Start/VBoxContainer" unique_id=1340552035]
 layout_mode = 2
+theme = SubResource("Theme_6flho")
 text = "Play Game"
 
 [node name="QuitGame" type="Button" parent="MainMenu/Start/VBoxContainer" unique_id=11416879]
 layout_mode = 2
+theme = ExtResource("8_6flho")
 text = "Quit Game"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenu/Start" unique_id=1857344018]
@@ -295,7 +330,6 @@ libraries/ = SubResource("AnimationLibrary_7ty7c")
 
 [node name="LevelSelect" type="Control" parent="MainMenu" unique_id=1370676926]
 unique_name_in_owner = true
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -321,11 +355,13 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_qk62m")
 
 [node name="GridContainer" type="GridContainer" parent="MainMenu/LevelSelect/PanelContainer" unique_id=1305643979]
 layout_mode = 2
+theme = ExtResource("8_6flho")
 columns = 4
 
 [node name="LevelIcon" type="MarginContainer" parent="MainMenu/LevelSelect/PanelContainer/GridContainer" unique_id=1435023371]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("8_6flho")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -340,6 +376,7 @@ text = "1-1"
 [node name="LevelIcon2" type="MarginContainer" parent="MainMenu/LevelSelect/PanelContainer/GridContainer" unique_id=735701463]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("8_6flho")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -354,6 +391,7 @@ text = "1-2"
 [node name="LevelIcon3" type="MarginContainer" parent="MainMenu/LevelSelect/PanelContainer/GridContainer" unique_id=1240766712]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("8_6flho")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -368,6 +406,7 @@ text = "1-3"
 [node name="LevelIcon4" type="MarginContainer" parent="MainMenu/LevelSelect/PanelContainer/GridContainer" unique_id=14426035]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("8_6flho")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -382,6 +421,7 @@ text = "1-4"
 [node name="LevelIcon5" type="MarginContainer" parent="MainMenu/LevelSelect/PanelContainer/GridContainer" unique_id=1187689305]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("8_6flho")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -398,6 +438,7 @@ text = "1-5
 [node name="LevelIcon6" type="MarginContainer" parent="MainMenu/LevelSelect/PanelContainer/GridContainer" unique_id=284435682]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("8_6flho")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -412,6 +453,7 @@ text = "1-6"
 [node name="LevelIcon7" type="MarginContainer" parent="MainMenu/LevelSelect/PanelContainer/GridContainer" unique_id=1410236563]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+theme = ExtResource("8_6flho")
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
@@ -422,6 +464,59 @@ layout_mode = 2
 theme = SubResource("Theme_dxg1c")
 theme_type_variation = &"FlatButton"
 text = "1-7"
+
+[node name="Credits" type="Control" parent="MainMenu" unique_id=1393335760]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -96.0
+offset_right = 352.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Credits" unique_id=979855104]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -67.0
+offset_right = 27.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/Credits/VBoxContainer" unique_id=245241013]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 32
+text = " Joe Ballanderson"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MainMenu/Credits/VBoxContainer" unique_id=1497931870]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 32
+text = " Kelley Dugan"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MainMenu/Credits/VBoxContainer" unique_id=1073898338]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/shadow_offset_x = 4
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 32
+text = " Alice Stravinsky"
 
 [connection signal="pressed" from="MainMenu/Start/VBoxContainer/PlayGame" to="MainMenu" method="_on_play_game_pressed"]
 [connection signal="pressed" from="MainMenu/Start/VBoxContainer/QuitGame" to="MainMenu" method="_on_quit_game_pressed"]
