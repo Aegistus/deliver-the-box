@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c360i32ihaiu2"]
+
+[ext_resource type="PackedScene" uid="uid://c8xu4b0c3me2l" path="res://objects/scenery/course.tscn" id="1_80ccg"]
+[ext_resource type="PackedScene" uid="uid://doe5takjsgt40" path="res://player/player.tscn" id="3_3hnis"]
+[ext_resource type="PackedScene" path="res://objects/scenery/door/door.tscn" id="4_1n0fi"]
+[ext_resource type="PackedScene" uid="uid://bklms31au6uik" path="res://objects/objective/objective.tscn" id="5_dc7e1"]
+[ext_resource type="PackedScene" uid="uid://cve6fjpdm24pb" path="res://objects/the_box/the_box.tscn" id="6_b7xf8"]
+[ext_resource type="PackedScene" uid="uid://cp4absrhqtpj0" path="res://ui/player_ui.tscn" id="7_f1k4s"]
+[ext_resource type="PackedScene" uid="uid://cs6th11a3cbmo" path="res://ui/pause_menu/pause_menu.tscn" id="8_dcix7"]
+[ext_resource type="PackedScene" uid="uid://clywt3lidi7sb" path="res://ui/win_menu/win_level_menu.tscn" id="9_07061"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3hnis"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_1n0fi"]
+sky_material = SubResource("ProceduralSkyMaterial_3hnis")
+
+[sub_resource type="Environment" id="Environment_dc7e1"]
+background_mode = 2
+sky = SubResource("Sky_1n0fi")
+glow_enabled = true
+
+[node name="Level01Introduction" type="Node3D" unique_id=1810524139]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1105585404]
+environment = SubResource("Environment_dc7e1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1890940681]
+transform = Transform3D(0.8660253, 0.43301284, -0.25000006, 2.780595e-08, 0.49999994, 0.86602545, 0.5000001, -0.75, 0.4330126, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Course" parent="." unique_id=196895958 instance=ExtResource("1_80ccg")]
+
+[node name="StartPoint" type="Node3D" parent="." unique_id=377095752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 4.75)
+
+[node name="Player" parent="StartPoint" unique_id=599480128 instance=ExtResource("3_3hnis")]
+delay_input = false
+
+[node name="Door" parent="." unique_id=1783179016 instance=ExtResource("4_1n0fi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
+
+[node name="Objective" parent="." unique_id=2028633888 instance=ExtResource("5_dc7e1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -86.5)
+
+[node name="TheBox" parent="." unique_id=1953151953 instance=ExtResource("6_b7xf8")]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.75, -4.75)
+
+[node name="PlayerUI" parent="." unique_id=1802423578 instance=ExtResource("7_f1k4s")]
+
+[node name="PauseMenu" parent="." unique_id=1873073820 instance=ExtResource("8_dcix7")]
+visible = false
+
+[node name="WinLevelMenu" parent="." unique_id=1923333696 instance=ExtResource("9_07061")]
+process_mode = 3

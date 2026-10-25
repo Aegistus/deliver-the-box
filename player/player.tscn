@@ -1,6 +1,12 @@
 [gd_scene format=3 uid="uid://doe5takjsgt40"]
 
 [ext_resource type="Script" uid="uid://f8200clyobnl" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="AudioStream" uid="uid://c14yf2va4grtr" path="res://player/footsteps/joentnt-walk-on-grass-1-291984.mp3" id="2_rkbax"]
+[ext_resource type="Script" uid="uid://ddp0t3dsih7il" path="res://player/statemachine/state_machine.gd" id="3_g1dw6"]
+[ext_resource type="Script" uid="uid://ccofbxwfbuqen" path="res://player/statemachine/stand_state.gd" id="4_qjkh3"]
+[ext_resource type="Script" uid="uid://bjcbvgxn8i40e" path="res://player/statemachine/walk_state.gd" id="5_g6k8r"]
+[ext_resource type="Script" uid="uid://cge3nmwbbglt1" path="res://player/statemachine/sprint_state.gd" id="6_boad6"]
+[ext_resource type="Script" uid="uid://bhsr60otmj6wp" path="res://player/statemachine/in_air_state.gd" id="7_rgyib"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qk62m"]
 
@@ -8,6 +14,12 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qk62m"]
 radius = 0.01
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e4122"]
+random_pitch = 1.0594631
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("2_rkbax")
 
 [node name="Player" type="CharacterBody3D" unique_id=599480128 groups=["Player"]]
 script = ExtResource("1_oul6g")
@@ -43,3 +55,29 @@ linear_spring_z/enabled = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Head/Camera/CarryingPoint/StaticBody3D" unique_id=1301187378]
 shape = SubResource("SphereShape3D_qk62m")
+
+[node name="Footsteps" type="AudioStreamPlayer3D" parent="." unique_id=1709649721]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_e4122")
+volume_db = -20.0
+
+[node name="StateMachine" type="Node" parent="." unique_id=1520741675 node_paths=PackedStringArray("default_state", "target")]
+script = ExtResource("3_g1dw6")
+default_state = NodePath("StandState")
+target = NodePath("..")
+
+[node name="StandState" type="Node" parent="StateMachine" unique_id=2085464493]
+unique_name_in_owner = true
+script = ExtResource("4_qjkh3")
+
+[node name="WalkState" type="Node" parent="StateMachine" unique_id=1643158797]
+unique_name_in_owner = true
+script = ExtResource("5_g6k8r")
+
+[node name="SprintState" type="Node" parent="StateMachine" unique_id=28896781]
+unique_name_in_owner = true
+script = ExtResource("6_boad6")
+
+[node name="InAirState" type="Node" parent="StateMachine" unique_id=547578140]
+unique_name_in_owner = true
+script = ExtResource("7_rgyib")

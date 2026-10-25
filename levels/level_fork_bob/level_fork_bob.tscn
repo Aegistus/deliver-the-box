@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://16sghvuxvhvx" path="res://levels/level_fork_bob/level_fork_bob.gd" id="1_cv8u6"]
 [ext_resource type="PackedScene" uid="uid://doe5takjsgt40" path="res://player/player.tscn" id="4_00fek"]
-[ext_resource type="PackedScene" uid="uid://bxi5lnx87xt4p" path="res://objects/scenery/door/door.tscn" id="5_o6pd3"]
 [ext_resource type="PackedScene" uid="uid://bklms31au6uik" path="res://objects/objective/objective.tscn" id="6_br6ii"]
 [ext_resource type="PackedScene" uid="uid://cve6fjpdm24pb" path="res://objects/the_box/the_box.tscn" id="7_3gaay"]
 [ext_resource type="PackedScene" uid="uid://cp4absrhqtpj0" path="res://ui/player_ui.tscn" id="8_57egb"]
@@ -49,9 +48,6 @@ shadow_enabled = true
 
 [node name="Player" parent="." unique_id=599480128 instance=ExtResource("4_00fek")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 1.25, 4)
-
-[node name="Door" parent="." unique_id=1783179016 instance=ExtResource("5_o6pd3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)
 
 [node name="Objective" parent="." unique_id=2028633888 instance=ExtResource("6_br6ii")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -86.5)

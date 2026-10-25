@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://vs1ma4jxv4jc" path="res://objects/spikes/spikes.tscn" id="5_5cmhr"]
 [ext_resource type="PackedScene" uid="uid://52coo82t5qus" path="res://objects/spinning_spikes/spinning_spikes.tscn" id="6_uh8e6"]
 [ext_resource type="Script" uid="uid://b8a7jaj4f267a" path="res://objects/spinning_spikes/spinning_spikes.gd" id="7_j4e22"]
+[ext_resource type="PackedScene" uid="uid://bxi5lnx87xt4p" path="res://objects/door/door.tscn" id="8_j4e22"]
 
 [node name="Course" type="Node3D" unique_id=196895958]
 
@@ -151,3 +152,6 @@ transform = Transform3D(4.371139e-08, 1, 8.742278e-08, 1, -4.371139e-08, 0, 3.82
 [node name="SpinningSpikes" parent="." unique_id=591615309 instance=ExtResource("6_uh8e6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -72)
 script = ExtResource("7_j4e22")
+
+[node name="Door" parent="." unique_id=1783179016 instance=ExtResource("8_j4e22")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25)

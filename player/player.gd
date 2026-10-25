@@ -30,11 +30,15 @@ var current_interactable
 var currently_carrying
 
 var input_delay_time := 1.0
+var input_dir
 
 @onready var head = %Head
 @onready var camera = %Camera
 @onready var interact_raycast = %InteractRaycast
 @onready var carrying_point = %CarryingPoint
+@onready var footsteps: AudioStreamPlayer3D = %Footsteps
+
+var current_state := "standing"
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -74,7 +78,7 @@ func _physics_process(delta):
 			await get_tree().create_timer(input_delay_time).timeout
 		velocity.y = jump_velocity
 	
-	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if is_on_floor():
 		if delay_input:

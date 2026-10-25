@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bxi5lnx87xt4p"]
+
+[ext_resource type="Script" uid="uid://cktxl1k1dq5bb" path="res://objects/door/door.gd" id="1_pf80j"]
+[ext_resource type="Script" uid="uid://d3mmlsqxmwiaw" path="res://objects/door/model.gd" id="2_yriku"]
+[ext_resource type="AudioStream" uid="uid://ckjvca24tk40u" path="res://objects/door/stone_door_open.ogg" id="3_y765d"]
+
+[node name="Door" type="Node3D" unique_id=1783179016 groups=["EntryDoor"]]
+script = ExtResource("1_pf80j")
+
+[node name="Model" type="CSGBox3D" parent="." unique_id=2083975984]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+use_collision = true
+collision_layer = 5
+size = Vector3(2.5, 3, 0.5)
+script = ExtResource("2_yriku")
+
+[node name="DoorOpen" type="AudioStreamPlayer3D" parent="." unique_id=1724676132]
+unique_name_in_owner = true
+stream = ExtResource("3_y765d")
