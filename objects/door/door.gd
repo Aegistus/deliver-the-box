@@ -9,6 +9,7 @@ var open_time := 3.0
 @onready var door_open: AudioStreamPlayer3D = %DoorOpen
 
 func interact(player: Player):
+	model.set_collision_layer_value(3, false)
 	var tween = get_tree().create_tween()
 	tween.tween_property(model, "position", open_position, open_time)
 	door_open.play()
