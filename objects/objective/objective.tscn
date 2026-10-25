@@ -2,6 +2,8 @@
 
 [ext_resource type="Material" uid="uid://bkstuh8nu28f3" path="res://objects/objective/objective.tres" id="1_6oxlb"]
 [ext_resource type="Script" uid="uid://06uqy4twkj3g" path="res://objects/objective/objective.gd" id="1_bb83m"]
+[ext_resource type="AudioStream" uid="uid://caf4xr5cuying" path="res://objects/objective/party_horn.mp3" id="3_bw5l3"]
+[ext_resource type="AudioStream" uid="uid://diwqdwh5dhqd2" path="res://objects/objective/confetti_pop.mp3" id="4_vqw6l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qk62m"]
 size = Vector3(1.4, 0.5, 1.4)
@@ -101,3 +103,13 @@ one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_bb83m")
 draw_pass_1 = SubResource("QuadMesh_bw5l3")
+
+[node name="PartyHorn" type="AudioStreamPlayer3D" parent="." unique_id=34575336]
+unique_name_in_owner = true
+stream = ExtResource("3_bw5l3")
+volume_db = 10.0
+
+[node name="ConfettiPop" type="AudioStreamPlayer3D" parent="." unique_id=1675615545]
+unique_name_in_owner = true
+stream = ExtResource("4_vqw6l")
+volume_db = 10.0
