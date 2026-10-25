@@ -4,12 +4,9 @@ class_name LevelDialup
 signal on_start_freeze
 signal on_stop_freeze
 
-var min_rubberband_delay := 1.0
-var max_rubberband_delay := 3.0
+var min_rubberband_delay := 2.5
+var max_rubberband_delay := 4.0
 var movement_delay := 1.0
-
-var min_freeze_delay := 1.0
-var max_freeze_delay := 7.0
 
 var player : Player
 
