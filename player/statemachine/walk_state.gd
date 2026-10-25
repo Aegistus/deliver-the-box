@@ -3,9 +3,6 @@ class_name WalkState
 
 var walk := false
 
-func _ready():
-	pass
-
 func enter():
 	super()
 	walk = true

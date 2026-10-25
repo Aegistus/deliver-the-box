@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://doe5takjsgt40"]
 
 [ext_resource type="Script" uid="uid://f8200clyobnl" path="res://player/player.gd" id="1_oul6g"]
-[ext_resource type="AudioStream" uid="uid://c14yf2va4grtr" path="res://player/footsteps/joentnt-walk-on-grass-1-291984.mp3" id="2_rkbax"]
+[ext_resource type="AudioStream" uid="uid://cdkmwtulb2h6c" path="res://player/footsteps/grass_footsteps.ogg" id="2_boad6"]
 [ext_resource type="Script" uid="uid://ddp0t3dsih7il" path="res://player/statemachine/state_machine.gd" id="3_g1dw6"]
 [ext_resource type="Script" uid="uid://ccofbxwfbuqen" path="res://player/statemachine/stand_state.gd" id="4_qjkh3"]
 [ext_resource type="Script" uid="uid://bjcbvgxn8i40e" path="res://player/statemachine/walk_state.gd" id="5_g6k8r"]
@@ -19,7 +19,7 @@ radius = 0.01
 random_pitch = 1.0594631
 random_volume_offset_db = 1.0
 streams_count = 1
-stream_0/stream = ExtResource("2_rkbax")
+stream_0/stream = ExtResource("2_boad6")
 
 [node name="Player" type="CharacterBody3D" unique_id=599480128 groups=["Player"]]
 script = ExtResource("1_oul6g")
