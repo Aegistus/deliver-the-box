@@ -64,10 +64,10 @@ use_collision = true
 size = Vector3(2.75, 5, 3)
 
 [node name="Floor4" type="CSGBox3D" parent="." unique_id=639553019]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, -2.5, -48.625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.125, -2.5, -48.5)
 material_override = ExtResource("1_v6qs5")
 use_collision = true
-size = Vector3(3.5, 5, 3.25)
+size = Vector3(3.75, 5, 3.5)
 
 [node name="Floor5" type="CSGBox3D" parent="." unique_id=2066236923]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.125, -2.5, -54.875)
