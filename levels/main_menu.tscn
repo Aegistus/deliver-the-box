@@ -7,6 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://bbwq3r25hbe0q" path="res://objects/scenery/grass/grass_mesh.tres" id="5_3ye4h"]
 [ext_resource type="PackedScene" uid="uid://cve6fjpdm24pb" path="res://objects/the_box/the_box.tscn" id="6_nwbki"]
 [ext_resource type="Script" uid="uid://bxtkf7updr20x" path="res://ui/main_menu.gd" id="7_pppj1"]
+[ext_resource type="Theme" uid="uid://bntrye3gnbaqd" path="res://theme.tres" id="8_6flho"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nwbki"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -29,11 +30,122 @@ buffer = PackedFloat32Array(0.117951006, 0, 0.047371417, 1.4652084, 0, 0.1271081
 [sub_resource type="PlaneMesh" id="PlaneMesh_pppj1"]
 size = Vector2(1.485, 1.245)
 
-[sub_resource type="Theme" id="Theme_qk62m"]
-title/base_type = &"RichTextLabel"
-title/colors/default_color = Color(1, 1, 1, 1)
-title/constants/outline_size = 12
-title/font_sizes/normal_font_size = 30
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o8grb"]
+bg_color = Color(0.47750294, 0.34539118, 0.18756428, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.64187974, 0.4732337, 0.27659485, 1)
+
+[sub_resource type="Animation" id="Animation_6flho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(850, 187)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Box:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Box:pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Box/Title:horizontal_alignment")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ofye2"]
+resource_name = "entry"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Box:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4666667, 0.6666667, 0.8166667, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(386, -239), Vector2(850, 187), Vector2(850, 176.775), Vector2(850, 187), Vector2(850, 187)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Box:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.46, 0.6666667, 0.81),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-6.2831855, 0.0, 0.14660765, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Box:pivot_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.47, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(80, 80)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Box/Title:horizontal_alignment")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.85),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ty7c"]
+_data = {
+&"RESET": SubResource("Animation_6flho"),
+&"entry": SubResource("Animation_ofye2")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qk62m"]
 bg_color = Color(0, 0, 0, 0.42745098)
@@ -119,7 +231,7 @@ visible = false
 mesh = SubResource("PlaneMesh_pppj1")
 
 [node name="TheBox" parent="." unique_id=1953151953 instance=ExtResource("6_nwbki")]
-transform = Transform3D(-1.7971493, -0.8776373, -0.002632801, 0.531981, -1.0845627, -1.5939636, 0.6980333, -1.4329957, 1.2080038, 0.7208288, 9.235678, -10.101014)
+transform = Transform3D(-1.7971493, -0.8776373, -0.002632801, 0.531981, -1.0845627, -1.5939636, 0.6980333, -1.4329957, 1.2080038, 0.721, 20, -10.101)
 
 [node name="MainMenu" type="Control" parent="." unique_id=1888274949]
 layout_mode = 3
@@ -139,6 +251,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Box" type="PanelContainer" parent="MainMenu/Start" unique_id=1837906248]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 187.0
+offset_right = 1010.0005
+offset_bottom = 347.00012
+theme_override_styles/panel = SubResource("StyleBoxFlat_o8grb")
+
+[node name="Title" type="RichTextLabel" parent="MainMenu/Start/Box" unique_id=1899216180]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme = ExtResource("8_6flho")
+theme_type_variation = &"title"
+text = " deliver the box"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="VBoxContainer" type="VBoxContainer" parent="MainMenu/Start" unique_id=1481951613]
 layout_mode = 1
 anchors_preset = 6
@@ -147,18 +276,11 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -338.0
-offset_top = -136.0
+offset_top = 37.0
 offset_right = -101.0
-offset_bottom = 150.0
+offset_bottom = 323.0
 grow_horizontal = 0
 grow_vertical = 2
-
-[node name="Title" type="RichTextLabel" parent="MainMenu/Start/VBoxContainer" unique_id=1899216180]
-custom_minimum_size = Vector2(0, 150)
-layout_mode = 2
-theme = SubResource("Theme_qk62m")
-theme_type_variation = &"title"
-text = " deliver the box"
 
 [node name="PlayGame" type="Button" parent="MainMenu/Start/VBoxContainer" unique_id=1340552035]
 layout_mode = 2
@@ -168,8 +290,12 @@ text = "Play Game"
 layout_mode = 2
 text = "Quit Game"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenu/Start" unique_id=1857344018]
+libraries/ = SubResource("AnimationLibrary_7ty7c")
+
 [node name="LevelSelect" type="Control" parent="MainMenu" unique_id=1370676926]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

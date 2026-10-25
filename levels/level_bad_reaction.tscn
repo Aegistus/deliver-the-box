@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://cp4absrhqtpj0" path="res://ui/player_ui.tscn" id="7_6qd3o"]
 [ext_resource type="PackedScene" uid="uid://c8xu4b0c3me2l" path="res://objects/scenery/course.tscn" id="8_boea6"]
 [ext_resource type="PackedScene" uid="uid://cs6th11a3cbmo" path="res://ui/pause_menu/pause_menu.tscn" id="8_nmmhb"]
+[ext_resource type="Script" uid="uid://244u54y83jgk" path="res://ui/level_title.gd" id="9_e08kj"]
 [ext_resource type="PackedScene" uid="uid://clywt3lidi7sb" path="res://ui/win_menu/win_level_menu.tscn" id="9_neps6"]
+[ext_resource type="Theme" uid="uid://bntrye3gnbaqd" path="res://theme.tres" id="10_74n1o"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3hnis"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,6 +22,43 @@ sky_material = SubResource("ProceduralSkyMaterial_3hnis")
 background_mode = 2
 sky = SubResource("Sky_1n0fi")
 glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_80ccg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -201)]
+}
+
+[sub_resource type="Animation" id="Animation_f8v3b"]
+resource_name = "enter_exit"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 4.03, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -223), Vector2(0, 0), Vector2(0, 0), Vector2(0, -223)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c7ptt"]
+_data = {
+&"RESET": SubResource("Animation_80ccg"),
+&"enter_exit": SubResource("Animation_f8v3b")
+}
 
 [node name="LevelBadReaction" type="Node3D" unique_id=1810524139]
 script = ExtResource("1_0pm3d")
@@ -49,3 +88,33 @@ visible = false
 process_mode = 3
 
 [node name="Course" parent="." unique_id=196895958 instance=ExtResource("8_boea6")]
+
+[node name="LevelTitle" type="Control" parent="." unique_id=2109154634]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.0
+offset_top = 66.0
+offset_right = 184.0
+offset_bottom = 116.0
+grow_horizontal = 2
+script = ExtResource("9_e08kj")
+
+[node name="Title" type="RichTextLabel" parent="LevelTitle" unique_id=656895979]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -201.0
+offset_bottom = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("10_74n1o")
+theme_type_variation = &"title"
+text = "DE...............LAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelTitle" unique_id=1140962954]
+libraries/ = SubResource("AnimationLibrary_c7ptt")

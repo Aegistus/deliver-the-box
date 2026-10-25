@@ -2,10 +2,12 @@ extends Control
 
 @onready var start: Control = %Start
 @onready var level_select: Control = %LevelSelect
+@onready var animation_player: AnimationPlayer = $Start/AnimationPlayer
 
 func _ready():
 	start.visible = true
 	level_select.visible = false
+	animation_player.play("entry")
 
 func _on_play_game_pressed() -> void:
 	start.visible = false

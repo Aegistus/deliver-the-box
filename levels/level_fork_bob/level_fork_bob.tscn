@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cs6th11a3cbmo" path="res://ui/pause_menu/pause_menu.tscn" id="9_u3p3u"]
 [ext_resource type="PackedScene" uid="uid://c8xu4b0c3me2l" path="res://objects/scenery/course.tscn" id="10_cv8u6"]
 [ext_resource type="PackedScene" uid="uid://clywt3lidi7sb" path="res://ui/win_menu/win_level_menu.tscn" id="10_rcpud"]
+[ext_resource type="Script" uid="uid://244u54y83jgk" path="res://ui/level_title.gd" id="10_t7xnu"]
+[ext_resource type="Theme" uid="uid://bntrye3gnbaqd" path="res://theme.tres" id="11_8v6r0"]
 [ext_resource type="Script" uid="uid://bbkrtqey37fi1" path="res://levels/level_fork_bob/game_console.gd" id="11_t7xnu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3hnis"]
@@ -35,6 +37,43 @@ corner_radius_bottom_left = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxg1c"]
 bg_color = Color(0, 0, 0, 0.40784314)
+
+[sub_resource type="Animation" id="Animation_80ccg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -201)]
+}
+
+[sub_resource type="Animation" id="Animation_f8v3b"]
+resource_name = "enter_exit"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 4.03, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -223), Vector2(0, 0), Vector2(0, 0), Vector2(0, -223)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00fek"]
+_data = {
+&"RESET": SubResource("Animation_80ccg"),
+&"enter_exit": SubResource("Animation_f8v3b")
+}
 
 [node name="LevelForkBob" type="Node3D" unique_id=1810524139]
 script = ExtResource("1_cv8u6")
@@ -103,3 +142,33 @@ size_flags_vertical = 3
 alignment = 2
 
 [node name="Course" parent="." unique_id=196895958 instance=ExtResource("10_cv8u6")]
+
+[node name="LevelTitle" type="Control" parent="." unique_id=1762742021]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.0
+offset_top = 66.0
+offset_right = 184.0
+offset_bottom = 116.0
+grow_horizontal = 2
+script = ExtResource("10_t7xnu")
+
+[node name="Title" type="RichTextLabel" parent="LevelTitle" unique_id=1034281711]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -201.0
+offset_bottom = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_8v6r0")
+theme_type_variation = &"title"
+text = "FORK BOB"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelTitle" unique_id=1007126189]
+libraries/ = SubResource("AnimationLibrary_00fek")

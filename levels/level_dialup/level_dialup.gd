@@ -13,12 +13,15 @@ var max_freeze_delay := 7.0
 
 var player : Player
 
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
+
 func _ready():
 	var door = get_tree().get_first_node_in_group("EntryDoor")
 	door.on_door_open.connect(rubberband)
 	player = get_tree().get_first_node_in_group("Player")
 
 func rubberband():
+	audio_stream_player_3d.play()
 	while true:
 		var delay = randf_range(min_rubberband_delay, max_rubberband_delay)
 		await get_tree().create_timer(delay).timeout

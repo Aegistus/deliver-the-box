@@ -8,7 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cs6th11a3cbmo" path="res://ui/pause_menu/pause_menu.tscn" id="8_8siee"]
 [ext_resource type="PackedScene" uid="uid://clywt3lidi7sb" path="res://ui/win_menu/win_level_menu.tscn" id="9_tq0en"]
 [ext_resource type="PackedScene" uid="uid://c8xu4b0c3me2l" path="res://objects/scenery/course.tscn" id="10_536un"]
+[ext_resource type="AudioStream" uid="uid://bmuaa7gghjtko" path="res://levels/level_dialup/dialup.ogg" id="10_clwdd"]
 [ext_resource type="PackedScene" uid="uid://bql4dx3j2de8w" path="res://ui/ping_display/ping_display.tscn" id="10_x2qtu"]
+[ext_resource type="Script" uid="uid://244u54y83jgk" path="res://ui/level_title.gd" id="11_clwdd"]
+[ext_resource type="Theme" uid="uid://bntrye3gnbaqd" path="res://theme.tres" id="12_lnaqb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3hnis"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -21,6 +24,43 @@ sky_material = SubResource("ProceduralSkyMaterial_3hnis")
 background_mode = 2
 sky = SubResource("Sky_1n0fi")
 glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_80ccg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -201)]
+}
+
+[sub_resource type="Animation" id="Animation_f8v3b"]
+resource_name = "enter_exit"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 4.03, 4.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -223), Vector2(0, 0), Vector2(0, 0), Vector2(0, -223)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vodkp"]
+_data = {
+&"RESET": SubResource("Animation_80ccg"),
+&"enter_exit": SubResource("Animation_f8v3b")
+}
 
 [node name="LevelDialup" type="Node3D" unique_id=1810524139 groups=["Level"]]
 script = ExtResource("1_536un")
@@ -52,3 +92,37 @@ process_mode = 3
 [node name="PingDisplay" parent="." unique_id=68503565 instance=ExtResource("10_x2qtu")]
 
 [node name="Course" parent="." unique_id=196895958 instance=ExtResource("10_536un")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1163632171]
+stream = ExtResource("10_clwdd")
+attenuation_model = 3
+
+[node name="LevelTitle" type="Control" parent="." unique_id=203789113]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -184.0
+offset_top = 66.0
+offset_right = 184.0
+offset_bottom = 116.0
+grow_horizontal = 2
+script = ExtResource("11_clwdd")
+
+[node name="Title" type="RichTextLabel" parent="LevelTitle" unique_id=844397014]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -201.0
+offset_bottom = -201.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("12_lnaqb")
+theme_type_variation = &"title"
+text = "DIALUP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="LevelTitle" unique_id=1736112798]
+libraries/ = SubResource("AnimationLibrary_vodkp")
