@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://vs1ma4jxv4jc"]
+
+[ext_resource type="Script" uid="uid://vh2hmgepcmv2" path="res://objects/spikes/spikes.gd" id="1_f3y2s"]
+[ext_resource type="ArrayMesh" uid="uid://xhu5743et4oh" path="res://objects/spikes/spikes.obj" id="1_lsu0p"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qk62m"]
+size = Vector3(3.5, 1, 3.5)
+
+[node name="Spikes" type="Area3D" unique_id=1283190306]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_f3y2s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1653131541]
+transform = Transform3D(0.31, 0, 0, 0, 0.31, 0, 0, 0, 0.31, -2.1855698e-08, -0.5, 0)
+mesh = ExtResource("1_lsu0p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=43435214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25, 0, -1.25)
+shape = SubResource("BoxShape3D_qk62m")

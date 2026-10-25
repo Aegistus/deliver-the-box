@@ -55,10 +55,11 @@ func _physics_process(delta):
 	if new_interactable != current_interactable:
 		current_interactable = new_interactable
 		on_interact_in_range.emit(new_interactable)
-	if Input.is_action_just_pressed("interact") and current_interactable:
+	if Input.is_action_just_pressed("interact"):
 		if delay_input:
 			await get_tree().create_timer(input_delay_time).timeout
-		current_interactable.interact(self)
+		if current_interactable:
+			current_interactable.interact(self)
 	if Input.is_action_just_pressed("drop"):
 		if delay_input:
 			await get_tree().create_timer(input_delay_time).timeout

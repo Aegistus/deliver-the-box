@@ -5,5 +5,5 @@ func _ready():
 	door.on_door_open.connect(its_floatin_time)
 
 func its_floatin_time():
-	global_position.x = 9 * pow(10, 5)
-	global_position.y = 9 * pow(10, 5)
+	global_position.x = 2 * pow(10, 6)
+	global_position.y = 2 * pow(10, 6)
