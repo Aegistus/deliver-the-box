@@ -28,7 +28,8 @@ enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
 Player="the player"
 Objective="the objective"
 EntryDoor="the door from the main entry area"
-GameConsole=""
+GameConsole="the output console"
+Level="the base node of the level"
 
 [gui]
 

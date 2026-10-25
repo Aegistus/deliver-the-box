@@ -24,7 +24,7 @@ background_mode = 2
 sky = SubResource("Sky_1n0fi")
 glow_enabled = true
 
-[node name="LevelDialup" type="Node3D" unique_id=1810524139]
+[node name="LevelDialup" type="Node3D" unique_id=1810524139 groups=["Level"]]
 script = ExtResource("1_536un")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1105585404]
